@@ -12,18 +12,19 @@ export default inject => Component => class extends React.Component {
 
     this.state = {
       injectedProps: {},
-      props,
     }
 
     let firstRun = true
     this.dispose = autorun(() => {
       // rerun store mapping so the flat values are processed again
+      // FIXME: Pass this.props ? Then we should call
+      //        the whole function on `componentWillReceiveProps`
       const injected = inject(this.context.mobxStores)
 
-      // copy to make sure we don't mutate an object that could be used by the injectFunction
+      // copy to make sure we don't mutate an object that could be used by the inject
       const injectedProps = { ...injected }
 
-      // flatten mobx-state-tree stores
+      // flatten mobx observables
       Object.keys(injectedProps).forEach((key) => {
         const value = injectedProps[key]
         if (isObservable(value)) {
@@ -41,12 +42,6 @@ export default inject => Component => class extends React.Component {
     })
   }
 
-  /* this is to make sure children component is refreshed */
-  componentWillReceiveProps(nextProps) {
-    if (shallowEqual(nextProps, this.props)) return
-    this.setState(prevState => ({ ...prevState, props: nextProps }))
-  }
-
   /* unbind observable reaction */
   componentWillUnmount() {
     this.dispose()
@@ -56,7 +51,7 @@ export default inject => Component => class extends React.Component {
     return (
       <Component
         /* this is parent props */
-        {...this.state.props}
+        {...this.props}
         /* this is injected props from hoc */
         {...this.state.injectedProps}
       />
