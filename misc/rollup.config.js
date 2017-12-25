@@ -5,10 +5,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import uglify from 'rollup-plugin-uglify'
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'))
-const external = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-]
 
 export default {
   name: pkg.amdName || pkg.name,
@@ -18,7 +14,7 @@ export default {
     file: pkg.main,
     format: process.env.FORMAT || 'umd',
   },
-  external,
+  external: ['fbjs/lib/shallowEqual', 'react', 'mobx'],
   plugins: [
     babel(),
     commonjs({
@@ -27,4 +23,9 @@ export default {
     }),
     uglify(),
   ],
+  globals: {
+    react: 'React',
+    mobx: 'mobx',
+    'fbjs/lib/shallowEqual': 'shallowEqual',
+  },
 }
