@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`k-mobx-react should flat observables from inject 1`] = `"my component {\\"fromParent\\":true,\\"store\\":{\\"some\\":\\"data\\",\\"array\\":[{\\"sub\\":\\"model 2\\"},{\\"sub\\":\\"model\\"}]},\\"not\\":\\"observable\\"}"`;
+
+exports[`k-mobx-react should works when there is no observables into inject 1`] = `"my component {\\"fromParent\\":true,\\"not\\":\\"observable\\"}"`;
+
+exports[`k-mobx-react should works when there is no props into inject 1`] = `"my component {\\"fromParent\\":true}"`;
