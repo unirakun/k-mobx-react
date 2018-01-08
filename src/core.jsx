@@ -1,8 +1,9 @@
+/* eslint-disable import/prefer-default-export */
 import React from 'react'
 import { autorun, isObservable, toJS } from 'mobx'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
-export default inject => Component => class extends React.Component {
+export const inject = injectFunction => Component => class extends React.Component {
   static contextTypes = {
     mobxStores: () => null, // this is to avoid importing prop-types
   }
@@ -19,7 +20,7 @@ export default inject => Component => class extends React.Component {
       // rerun store mapping so the flat values are processed again
       // FIXME: Pass this.props ? Then we should call
       //        the whole function on `componentWillReceiveProps`
-      const injected = inject(this.context.mobxStores)
+      const injected = injectFunction(this.context.mobxStores)
 
       // copy to make sure we don't mutate an object that could be used by the inject
       const injectedProps = { ...injected }
