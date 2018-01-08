@@ -16,18 +16,27 @@ Connect MobX (and mobx-state-tree) to React with plain old JS props!
  - [Examples](#examples)
 
 ## Purpose
-TODO
+This library offer the same `inject` API that the standard [mobx-react](https://github.com/mobxjs/mobx-react) library.
+What differs is about the types of props that are injected in the wrapped ReactJS component.
+
+ - With the standard `mobx-react` the props injected can be observable.
+ - With `k-mobx-react` the props injected **are** plain old JS objects.
 
 ## Why
-TODO
+We feel that observable object in ReactJS component enforce bad pattern of developments:
+ - It pushed the use of nested props into a ReactJS component
+    * We think that flat props are best because it is easier to optimise this kind of components
+ - You have to use customs `PropTypes`
+ - You can't bind a common React Component with this kind of objects
+    * We have some problems our existing React components that did not always worked as expected
 
 ## Installation
  - `npm install --save k-mobx-react`
  - `yarn add k-mobx-react`
 
 ## API
- - You can just change you `mobx-react` import
-TODO
+ - You can just change you `mobx-react` import with the new one: `k-mobx-react`
+ - If you use nested props, you should changes them to use flat props
 
 ## Examples
 TODO
