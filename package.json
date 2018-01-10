@@ -1,6 +1,6 @@
 {
   "name": "k-mobx-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect MobX (and mobx-state-tree) to React with plain old JS props!",
   "main": "index.js",
   "repository": "https://github.com/alakarteio/k-mobx-react.git",

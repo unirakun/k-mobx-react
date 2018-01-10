@@ -16,11 +16,11 @@ export const inject = injectFunction => Component => class extends React.Compone
     }
 
     let firstRun = true
-    this.dispose = autorun(() => {
+    this.readStore = (nextProps) => {
       // rerun store mapping so the flat values are processed again
       // FIXME: Pass this.props ? Then we should call
       //        the whole function on `componentWillReceiveProps`
-      const injected = injectFunction(this.context.mobxStores)
+      const injected = injectFunction(this.context.mobxStores, nextProps || this.props)
 
       // copy to make sure we don't mutate an object that could be used by the inject
       const injectedProps = { ...injected }
@@ -40,7 +40,13 @@ export const inject = injectFunction => Component => class extends React.Compone
       } else if (!shallowEqual(injectedProps, this.state.injectedProps)) {
         this.setState(prevState => ({ ...prevState, injectedProps }))
       }
-    })
+    }
+
+    this.dispose = autorun(this.readStore)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.readStore(nextProps)
   }
 
   /* unbind observable reaction */
