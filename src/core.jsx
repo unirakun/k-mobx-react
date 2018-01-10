@@ -16,7 +16,7 @@ export const inject = injectFunction => Component => class extends React.Compone
     }
 
     let firstRun = true
-    this.readStore = (nextProps) => {
+    this.readStore = nextProps => () => {
       // rerun store mapping so the flat values are processed again
       // FIXME: Pass this.props ? Then we should call
       //        the whole function on `componentWillReceiveProps`
@@ -42,11 +42,11 @@ export const inject = injectFunction => Component => class extends React.Compone
       }
     }
 
-    this.dispose = autorun(this.readStore)
+    this.dispose = autorun(this.readStore())
   }
 
   componentWillReceiveProps(nextProps) {
-    this.readStore(nextProps)
+    this.readStore(nextProps)()
   }
 
   /* unbind observable reaction */
