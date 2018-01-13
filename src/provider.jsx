@@ -13,7 +13,7 @@ export default stores => WrappedComponent => class extends Component {
   }
 
   getChildContext() {
-    // inner stores ares inherit stores and newly injected
+    // inner stores are inherit stores and newly injected
     const mobxStores = {
       ...this.context.mobxStores,
       ...stores,
