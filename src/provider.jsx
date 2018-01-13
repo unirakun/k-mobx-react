@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 
 // inspired from mobx-react/Provider :
 // -> https://github.com/mobxjs/mobx-react/blob/master/src/Provider.js
-export const provider = stores => WrappedComponent => class extends Component {
+export default stores => WrappedComponent => class extends Component {
   static contextTypes = {
     mobxStores: () => null, // this is to avoid importing prop-types
   }

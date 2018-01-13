@@ -1,9 +1,8 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react'
 import { autorun, isObservable, toJS } from 'mobx'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
-export const inject = injectFunction => Component => class extends React.Component {
+export default injectFunction => Component => class extends React.Component {
   static contextTypes = {
     mobxStores: () => null, // this is to avoid importing prop-types
   }
