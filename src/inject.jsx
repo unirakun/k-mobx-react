@@ -10,7 +10,7 @@ const getDisplayName = Component => `inject(${
 })`
 
 export default injectFunction => Component => class extends React.Component {
-  static displayName = getWrappedDisplayName(Component)
+  static displayName = getDisplayName(Component)
 
   static contextTypes = {
     mobxStores: () => null, // this is to avoid importing prop-types
