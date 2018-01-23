@@ -2,12 +2,15 @@ import React from 'react'
 import { autorun, isObservable, toJS } from 'mobx'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
-export default injectFunction => Component =>
-  class extends React.Component {
-    static displayName = `inject(${Component.displayName ||
-      Component.name ||
-      (Component.constructor && Component.constructor.name) ||
-      'Unknown'})`
+const getWrappedDisplayName = Component => `inject(${
+  Component.displayName
+  || Component.name
+  || (Component.constructor && Component.constructor.name)
+  || 'Unknown'
+})`
+
+export default injectFunction => Component => class extends React.Component {
+  static displayName = getWrappedDisplayName(Component)
 
   static contextTypes = {
     mobxStores: () => null, // this is to avoid importing prop-types
