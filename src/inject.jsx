@@ -42,11 +42,13 @@ export default injectFunction => Component => class extends React.Component {
     }
 
     // attach autorun
-    const toRun = this.readStore()
-    this.dispose = autorun(toRun)
+    this.toRun = this.readStore()
+    this.dispose = autorun(this.toRun)
+  }
 
+  componentWillMount() {
     // force run (at start, sometimes it doesn't trigger before the render dunno why)
-    toRun()
+    this.toRun()
   }
 
   componentWillReceiveProps(nextProps) {
