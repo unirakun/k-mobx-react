@@ -2,7 +2,7 @@ import React from 'react'
 import { autorun, isObservable, toJS } from 'mobx'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
-const getWrappedDisplayName = Component => `inject(${
+const getDisplayName = Component => `inject(${
   Component.displayName
   || Component.name
   || (Component.constructor && Component.constructor.name)
