@@ -46,4 +46,9 @@ describe('k-mobx-react', () => {
     const Wrapped = inject(({ store }) => ({ store, not: 'observable' }))(MyComponent)
     snap(getStore(), Wrapped, { fromParent: true })
   })
+
+  it('should have a meaningful name', () => {
+    const Wrapped = inject(() => ({}))(MyComponent)
+    expect(Wrapped.displayName).toMatchSnapshot()
+  })
 })
