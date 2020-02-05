@@ -5,8 +5,8 @@
 Connect MobX (and mobx-state-tree) to React with plain old JS props!
 > This is a better isolation of concerns
 
-[![CircleCI](https://circleci.com/gh/alakarteio/k-mobx-react.svg?style=shield)](https://circleci.com/gh/alakarteio/k-mobx-react) [![Coverage Status](https://coveralls.io/repos/github/alakarteio/k-mobx-react/badge.svg?branch=master)](https://coveralls.io/github/alakarteio/k-mobx-react?branch=master) [![NPM Version](https://badge.fury.io/js/k-mobx-react.svg)](https://www.npmjs.com/package/k-mobx-react)
-[![Size](http://img.badgesize.io/alakarteio/k-mobx-react/master/index.js.svg)]()
+[![CircleCI](https://circleci.com/gh/unirakun/k-mobx-react.svg?style=shield)](https://circleci.com/gh/unirakun/k-mobx-react) [![Coverage Status](https://coveralls.io/repos/github/unirakun/k-mobx-react/badge.svg?branch=master)](https://coveralls.io/github/unirakun/k-mobx-react?branch=master) [![NPM Version](https://badge.fury.io/js/k-mobx-react.svg)](https://www.npmjs.com/package/k-mobx-react)
+[![Size](http://img.badgesize.io/unirakun/k-mobx-react/master/index.js.svg)]()
 
 ## Contents
  - [Purpose](#purpose)
@@ -41,10 +41,10 @@ We feel that observable object in ReactJS component enforce bad pattern of devel
 ## Examples
 TODO
 
-# About ![alakarteio](http://alakarte.io/assets/img/logo.markdown.png)
-**alakarteio** is created by two passionate french developers.
+# About uni rakun
+**uni rakun** is created by two passionate french developers.
 
-Do you want to contact them ? Go to their [website](http://alakarte.io)
+Do you want to contact them ? Go to their [website](https://unirakun.fr)
 
 <table border="0">
  <tr>
